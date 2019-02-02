@@ -37,7 +37,7 @@ RUN apk add --no-cache --update wget ca-certificates \
    git \
    autoconf
 
-FROM sysdig/falco:0.122.1
+FROM sysdig/falco:0.12.1
 
 COPY --from=modulesrc /falco/build/driver/falco-probe.ko /
 
