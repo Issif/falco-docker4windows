@@ -3,7 +3,7 @@ FROM linuxkit/kernel:4.9.125 AS kernelsrc
 FROM alpine:latest AS modulesrc
 MAINTAINER Thomas Labarussias <issif+falco@gadz.org>
 ARG SYSDIGVER=0.25
-ARG FALCOVER=0.15.0
+ARG FALCOVER=0.15.1
 ARG KERNELVER=4.9.125
 COPY --from=kernelsrc /kernel-dev.tar /
 RUN apk add --no-cache --update wget ca-certificates \
@@ -37,7 +37,7 @@ RUN apk add --no-cache --update wget ca-certificates \
    git \
    autoconf
 
-FROM sysdig/falco:0.12.1
+FROM falcosecurity/falco:0.15.1
 
 COPY --from=modulesrc /falco/build/driver/falco-probe.ko /
 
