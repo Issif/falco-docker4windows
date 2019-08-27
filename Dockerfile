@@ -1,10 +1,10 @@
-FROM linuxkit/kernel:4.9.125 AS kernelsrc
+FROM linuxkit/kernel:4.9.184 AS kernelsrc
 
 FROM alpine:latest AS modulesrc
 MAINTAINER Thomas Labarussias <issif+falco@gadz.org>
 ARG SYSDIGVER=0.26.4
 ARG FALCOVER=0.17.0
-ARG KERNELVER=4.9.125
+ARG KERNELVER=4.9.184
 COPY --from=kernelsrc /kernel-dev.tar /
 RUN apk add --no-cache --update wget ca-certificates \
    build-base gcc abuild binutils \
